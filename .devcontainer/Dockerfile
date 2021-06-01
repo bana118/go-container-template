@@ -1,17 +1,12 @@
-FROM python:3.9.1-slim
+FROM golang:1.16.4-buster
 
 RUN apt update \
     && apt install -y --no-install-recommends \
     apt-utils \
     git \
-    gcc \
-    build-essential \
     ca-certificates \
     procps \
-    && pip install --no-cache-dir \
-    autopep8 \
-    flake8 \
-    pytest \
     && apt autoremove -y \
     && apt clean -y \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && go install github.com/go-delve/delve/cmd/dlv@latest
