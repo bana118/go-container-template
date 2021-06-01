@@ -9,4 +9,5 @@ RUN apt update \
     && apt autoremove -y \
     && apt clean -y \
     && rm -rf /var/lib/apt/lists/* \
-    && go install github.com/go-delve/delve/cmd/dlv@latest
+    && go install github.com/go-delve/delve/cmd/dlv@latest \
+    && curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.40.1
