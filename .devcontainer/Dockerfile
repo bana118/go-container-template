@@ -10,4 +10,6 @@ RUN apt update \
     && apt clean -y \
     && rm -rf /var/lib/apt/lists/* \
     && go install github.com/go-delve/delve/cmd/dlv@latest \
-    && curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $(go env GOPATH)/bin v1.40.1
+    && go install honnef.co/go/tools/cmd/staticcheck@latest \
+    && go get -v github.com/ramya-rao-a/go-outline \
+    && go get -v golang.org/x/tools/gopls

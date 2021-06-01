@@ -23,8 +23,8 @@ jobs:
     - name: Install dependencies
       run: go get -v -t -d ./...
     - name: Lint
-      uses: golangci/golangci-lint-action@v2
-      with:
-        version: latest
+      run: |
+        go install honnef.co/go/tools/cmd/staticcheck@latest
+        staticcheck ./...
     - name: Test
       run: go test ./...
