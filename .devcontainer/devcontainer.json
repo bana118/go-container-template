@@ -1,6 +1,8 @@
 {
     "name": "project-name",
     "dockerFile": "Dockerfile",
+    "workspaceFolder": "/go/src/github.com/bana118/go-container-template",
+    "workspaceMount": "type=bind,source=${localWorkspaceFolder},target=/go/src/github.com/bana118/go-container-template",
     "extensions": [
         "ms-azuretools.vscode-docker",
         "golang.go",
