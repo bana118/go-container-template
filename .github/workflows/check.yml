@@ -14,18 +14,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Setup Gp
-        uses: actions/setup-go@v2
-        with:
-          go-version: "^1.16.4"
-      - name: Install dependencies
-        run: go get -v -t -d ./...
-      - name: Lint
-        run: |
-          go install honnef.co/go/tools/cmd/staticcheck@latest
-          staticcheck ./...
-      - name: Test
-        run: go test ./...
       # - name: Check git tag
       #   uses: bana118/action-autotag@2d64822393af6f3f9db06ad3d1a51c6d756ac2f5
       #   env:
@@ -36,3 +24,13 @@ jobs:
       #     root: ".version"
       #     tag_prefix: "v"
       #     dry_run: true
+      - name: Setup Gp
+        uses: actions/setup-go@v2
+      - name: Install dependencies
+        run: go get -v -t -d ./...
+      - name: Lint
+        run: |
+          go install honnef.co/go/tools/cmd/staticcheck@latest
+          staticcheck ./...
+      - name: Test
+        run: go test ./...
