@@ -24,8 +24,10 @@ jobs:
       #     root: ".version"
       #     tag_prefix: "v"
       #     dry_run: true
-      - name: Setup Gp
+      - name: Setup Go
         uses: actions/setup-go@v2
+        with:
+          stable: "false"
       - name: Install dependencies
         run: go get -v -t -d ./...
       - name: Lint
