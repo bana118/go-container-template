@@ -1,4 +1,5 @@
 FROM golang:latest
+# FROM golang:1.17.6
 
 RUN apt update \
     && apt install -y --no-install-recommends \
